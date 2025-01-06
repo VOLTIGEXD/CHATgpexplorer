@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATgpexplorer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .donation {
+            position: absolute;
+            bottom: 50px;
+            text-align: center;
+        }
+        .donation p {
+            margin: 5px 0;
+        }
+        .arrow {
+            position: absolute;
+            bottom: 120px;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ferrari_488_GT3_in_Brands_Hatch_2018.jpg/300px-Ferrari_488_GT3_in_Brands_Hatch_2018.jpg" alt="Voiture de sport" id="car-image">
+
+    <audio id="engine-sound" src="https://www.soundjay.com/transportation/car-engine-start-01.mp3"></audio>
+
+    <div class="arrow">⬇️</div>
+    <div class="donation">
+        <p>Aimez-vous cette expérience ?</p>
+        <button onclick="window.open('https://www.paypal.com/donate', '_blank')">Faire un don</button>
+    </div>
+
+    <script>
+        const carImage = document.getElementById('car-image');
+        const engineSound = document.getElementById('engine-sound');
+
+        carImage.addEventListener('click', () => {
+            engineSound.currentTime = 0; // Reset sound to start
+            engineSound.play();
+        });
+    </script>
+</body>
+</html>
